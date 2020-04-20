@@ -4,7 +4,7 @@ google.charts.setOnLoadCallback(drawBasic);
 function drawBasic() {
 
     var data = google.visualization.arrayToDataTable([
-        ['Kansas City', 'Crime',],
+        ['Columbia', 'Crime',],
         ['2016', 7537],
         ['2017', 131009],
         ['2018', 131451],
@@ -13,14 +13,14 @@ function drawBasic() {
     ]);
 
     var options = {
-        title: 'The Crime of Kansas City from 2016 to 2019 ',
+        title: 'The Crime of Columbia from 2016 to 2019 ',
         chartArea: {width: '60%'},
         hAxis: {
             title: 'Total Crime rate in KC',
             minValue: 0
         },
         vAxis: {
-            title: 'Kansas City'
+            title: 'Columbia'
         }
     };
 
