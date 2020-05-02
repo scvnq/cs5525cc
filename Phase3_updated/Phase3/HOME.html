@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body style="height: 100%; width: 100%;color:#222">
+<!--navbar--->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+ <a class="navbar-brand" href="HOME.html"> <img src="img/nav.png" height="65" width="65"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"data-target="#navbarResponsive">
+<span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsivev">
+        <ul class="navbar-nav ml-auto" >
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="kc.html">Kansas City</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="ny.html">New York</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="la.html">Los Angeles</a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+</nav>
+
+<!--image-->
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0" class="active" href="kc.htmlz"></li>
+        <li data-target="#slides" data-slide-to="1" href="ny.html"></li>
+        <li data-target="#slides" data-slide-to="2"href="la.html"></li>
+
+    </ul>
+
+<div class="carousel-inner ">
+<div class="carousel-item active">
+    <img src="img/1.png" height="100%" width="100%"/>
+    <div class="carousel-caption">
+        <h1 class="display-2">Kansas City</h1>
+        <h3>Crime Data Analyse  </h3>
+        <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href = 'kc.html'" >VIEW RESULT</button>
+    </div>
+</div>
+    <div class="carousel-item">
+        <img src="img/2.jpg" height="100%" width="100%"/>
+        <div class="carousel-caption">
+            <h1 class="display-2">New York</h1>
+            <h3>Crime Data Analyse  </h3>
+            <button type="button" class="btn btn-outline-light btn-lg"onclick="window.location.href = 'ny.html'">VIEW RESULT</button>
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <img src="img/3.jpg" height="100%" width="100%"/>
+        <div class="carousel-caption">
+            <h1 class="display-2">Los Angeles</h1>
+            <h3>Crime Data Analyse  </h3>
+            <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href = 'la.html'">VIEW RESULT</button>
+        </div>
+    </div>
+</div>
+</div>
+<!--  -->
+
+<div class="container-fluid">
+<div class="row jumbotron">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 color1">
+        <p class="lead">
+<h3>Introduction</h3>
+        </br>Thousands of crimes are committed every day.
+        </br>There are multiple types of crime such as
+    </br>
+        (1) violent crime: rape, sexual assault, homicide, firearms,
+        </br>(2) property crime:burglary, larceny, motor vehicle theft
+        </br> (3) white-collar crime: a crime committed by a person of respectability and high social status in the course of his occupation: auto shop repair fraud and employee theft by cashiers, bookkeepers, etc.
+        </br>(4) organized crime: refers to criminal activity by groups or organizations
+        </br>(5) consensual or victimless crime: refers to behaviors such as illegal drug use, prostitution, gambling, etc.
+
+        </p></div>
+</div>
+</div>
+    <!--Footer  -->
+<footer style=" background: #1b1e21; color: white">
+ <div class="container-fluid padding">
+     <div class="row text-center">
+         <div class="col-md-4">
+             <hr class="light">
+             <h5> Contact us</h5>
+             <hr class="light">
+             <p>Phone: 333-333-3333</p>
+             <p>Email: qqq@mail.umkc.edu</p>
+             <p>Address: 111wairk,111ddd</p>
+             <p>kansas city, unite state,64111</p>
+         </div>
+         <div class="col-md-4">
+             <hr class="light">
+             <h5>Our hours</h5>
+             <hr class="light">
+             <p>Moday - Friday</p>
+             <p>8:00 am - 8:00 pm </p>
+             <p>Saturday - Sunday</p>
+             <p>9:00 am - 6:00 pm</p>
+
+         </div>
+         <div class="col-md-4">
+             <hr class="light">
+             <h5>About us</h5>
+             <hr class="light">
+             <p >Kansas city</p>
+             <p>Columbia</p>
+             <p>St Louis</p>
+             <p>Others</p>
+         </div>
+         <div class="col-12">
+             <hr class="light">
+             <h5>&copy; crimemo.com</h5>
+         </div>
+     </div>
+
+ </div>
+
+
+
+</footer>
+
+</body>
+</html>
