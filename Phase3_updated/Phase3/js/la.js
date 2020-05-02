@@ -21,7 +21,7 @@ function TotalCaseAnalysis() {
     getJSON('https://data.lacity.org/resource/63jg-8b9z.json?$select=date_extract_y(date_rptd)%20as%20year,count(dr_no)%20&$group=year%20&$order=year%20desc',
         function(err, data) {
             if (err !== null) {
-                alert('Something went wrong: ' + err);
+                alert('wrong: ' + err);
             } else {
 
                 var Case2020=parseInt(data[0].count_dr_no);
@@ -40,6 +40,7 @@ function TotalCaseAnalysis() {
 
             GenderAnalysis();
             ageAnalysis();
+            comparison()
         });
 }
 
@@ -72,9 +73,10 @@ function drawTotalCase(Case2020,Case2019,Case2018,Case2017,Case2016,Case2015,Cas
             duration: 1000,
             easing: 'in',
         },
-        title: 'Total Cases of Crime in Los Angeles by Year',
+        title: 'Total Cases of Crime in Los Angeles by Year--2010 to 2020',
         hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
         vAxis: {minValue: 0, title: 'Total Crime rate LA'}
+        
     };
 
 
@@ -97,7 +99,7 @@ function GenderAnalysis() {
     getJSON('https://data.lacity.org/resource/63jg-8b9z.json?$select=vict_sex%20as%20s,count(dr_no)&$group=s%20limit%20150000',
         function(err, data) {
             if (err !== null) {
-                alert('Something went wrong: ' + err);
+                alert('wrong: ' + err);
             } else {
 
                 var f=parseInt(data[1].count_dr_no);
@@ -228,7 +230,7 @@ function drawAgeChart(age0_10,age10_20,age20_30,age30_40,age40_50,age50_60,age60
 
     ]);
     var options = {
-        title: 'The relationship between crime and age'
+        title: 'The relationship between crime and victims age from 2010 to 2019'
     };
     var chart = new google.visualization.PieChart(document.getElementById('ageChar'));
     chart.draw(data, options);
@@ -242,5 +244,119 @@ function drawAgeChart(age0_10,age10_20,age20_30,age30_40,age40_50,age50_60,age60
 /*****************************************************************************/
 
 
+/**********Get Total Cases Data**********/
 
+function comparison() {
+    
+    
+    
+     getJSON('https://data.kcmo.org/resource/98is-shjt.json?$select=date_extract_y(reported_date)%20as%20year,count(report_no)%20&$group=year%20&$order=year%20desc',
+        function(err, data) {
+            if (err !== null) {
+                alert('wrong: ' + err);
+            } else {
+
+                var k17=parseInt(data[0].count_report_no);
+                
+               }
+         
+          getJSON('https://data.kcmo.org/resource/dmjw-d28i.json?$select=date_extract_y(reported_date)%20as%20year,count(report_no)%20&$group=year%20&$order=year%20desc',
+        function(err, data) {
+            if (err !== null) {
+                alert('wrong: ' + err);
+            } else {
+
+                var k18=parseInt(data[0].count_report_no);
+                
+               }
+              
+               getJSON('https://data.kcmo.org/resource/pxaa-ahcm.json?$select=date_extract_y(reported_date)%20as%20year,count(report_no)%20&$group=year%20&$order=year%20desc',
+        function(err, data) {
+            if (err !== null) {
+                alert('wrong: ' + err);
+            } else {
+
+                var k19=parseInt(data[0].count_report_no);
+                
+               }
+        
+    getJSON('https://data.lacity.org/resource/63jg-8b9z.json?$select=date_extract_y(date_rptd)%20as%20year,count(dr_no)%20&$group=year%20&$order=year%20desc',
+        function(err, data) {
+            if (err !== null) {
+                alert('wrong: ' + err);
+            } else {
+
+               
+                var Case2019=parseInt(data[1].count_dr_no);
+                var Case2018=parseInt(data[2].count_dr_no);
+                var Case2017=parseInt(data[3].count_dr_no);
+               
+               }
+        
+        
+        
+         getJSON('https://data.cityofnewyork.us/resource/wvxf-dwi5.json?$select=date_extract_y(inspectiondate)%20as%20year,count(violationid)%20&$group=year%20&$order=year%20desc',
+        function(err, data) {
+            if (err !== null) {
+                alert('wrong: ' + err);
+            } else {
+
+                
+                var Case19=parseInt(data[1].count_violationid);
+                var Case18=parseInt(data[2].count_violationid);
+                var Case17=parseInt(data[3].count_violationid);
+                
+               }
+             
+            drawcomp(Case2019,Case2018,Case2017,Case19,Case18,Case17,k19,k18,k17);
+
+
+            
+        });
+      }); 
+    });
+}); }); 
+    
+}
+
+
+
+
+
+//**********Visualize comparison**********////////////////////////////////////////////////////////////////////////
+
+google.charts.load('current', {'packages': ['corechart']});
+google.charts.setOnLoadCallback(drawcomp);
+function drawcomp(Case2019,Case2018,Case2017,Case19,Case18,Case17,k19,k18,k17) {
+    var data = google.visualization.arrayToDataTable([
+        ['last 3 years', 'LA','NY','KC'],
+        
+        ['2017', parseInt(Case2017),parseInt(Case17),parseInt(k17)],
+        ['2018', parseInt(Case2018),parseInt(Case18),parseInt(k18)],
+        ['2019', parseInt(Case2019),parseInt(Case19),parseInt(k19)],
+        
+    ]);
+   
+   var options = {
+       
+          chart: {
+            title: 'LA,NY and KC in Last 3 years', 
+            
+          },
+          bars: 'vertical',
+          vAxis: {format: 'decimal'},
+          chartArea: {width: '60%'},
+          height: 500,
+          colors: ['#1b9e77', '#d95f02', '#7570b3']
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('compChart'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+    
+}
+
+
+/***************************************************************************/
 
